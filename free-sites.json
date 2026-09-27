@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "1.0",
+  "title": "Absolutely Free Short-Drama Streaming Sites",
+  "criterion": "No coins, no payment, no VIP tier, no subscription, no locked episodes",
+  "verifiedAt": "2026-09-27",
+  "method": "Fetched the final episode of a series per site; confirmed a working player renders; scanned served HTML and JSON schemas for lock/currency/login mechanisms.",
+  "free": [
+    {
+      "rank": 1,
+      "domain": "dracinkita.com",
+      "language": "id",
+      "type": "aggregator",
+      "rightsHolder": false,
+      "adHeavy": true,
+      "loginRequired": false,
+      "evidence": "Final episode 58/58 served a real Astro SSR player page at /dramabox/play/{id}/58 with full 58-item episode grid and preconnect to hwztakavideoto.dramaboxdb.com. Zero lock/login/premium flags."
+    },
+    {
+      "rank": 2,
+      "domain": "nunodrama.my.id",
+      "language": "id",
+      "type": "aggregator",
+      "rightsHolder": false,
+      "adHeavy": false,
+      "loginRequired": false,
+      "selfDescribedAdFree": true,
+      "api": ["/api/{platform}/search?q=", "/api/{platform}/home", "/api/{platform}/detail?id="],
+      "evidence": "27/27 episodes as plain links /watch/nunomix/429457?ep=1..27; ep15 and ep27 return 200 with distinct proxied MP4 sources. Zero occurrences of koin/kredit/vip/premium/terkunci/login sitewide.",
+      "caveat": "dramabox platform currently returns 502; nunomix works."
+    },
+    {
+      "rank": 3,
+      "domain": "kisskh.is",
+      "language": "en",
+      "type": "aggregator",
+      "rightsHolder": false,
+      "adHeavy": true,
+      "loginRequired": false,
+      "api": ["/api/DramaList/Drama/{id}", "/api/DramaList/Show", "/api/DramaList/LastUpdate", "/api/DramaList/Search"],
+      "mirrors": ["kisskh.space", "kisskh.nl", "kisskh.do", "kisskh9.se"],
+      "evidence": "/api/DramaList/Drama/10903 returns all 36 episodes with is_locked/is_vip/price fields absent entirely from the schema. Zero HTML hits for terkunci/lock/vip/unlock/coin/koin.",
+      "caveat": "Long-form Asian drama and films, not vertical-only."
+    },
+    {
+      "rank": 4,
+      "domain": "dracinema.com",
+      "language": "id",
+      "type": "aggregator",
+      "rightsHolder": false,
+      "adHeavy": true,
+      "loginRequired": false,
+      "evidence": "Final episode 60/60 renders a full player plus complete 1-60 selector. Grep for coin|vip|premium|login|paywall returned only two Indonesian false positives: 'Daftar' (list) and 'Koin Raja Obat' (plot text)."
+    },
+    {
+      "rank": 5,
+      "domain": "sandiwara.net",
+      "language": ["id", "km"],
+      "type": "aggregator",
+      "rightsHolder": false,
+      "adHeavy": true,
+      "loginRequired": false,
+      "evidence": "?ep=105 on a 105-episode title returned a real episode-105 page with no redirect to signup/paywall. Site copy states free with no subscription and no account. Zero coin/vip/unlock markers."
+    },
+    {
+      "rank": 6,
+      "domain": "dramafren.org",
+      "language": "en",
+      "type": "aggregator",
+      "rightsHolder": false,
+      "adHeavy": true,
+      "loginRequired": false,
+      "subsites": ["dramabox", "dramaboxv2", "dramawave", "flickreels", "goodshort", "netshort", "shortmax", "starshort", "idrama", "idramav2", "flextv", "kalostv", "microdrama", "moboreels", "dramabite", "reelshort", "viglo", "dramapops", "tvseries"],
+      "evidence": "No paywall markers on home, series, or watch pages. Each series collapses to a single entry labelled 'EP 1 / FULL EPISODES'.",
+      "risk": "HIGH. Gridinsoft trust score 1/100, category 'Scam Website', 3 blacklist hits. No rights holder. Cloudflare-fronted; API tier currently down (503/523)."
+    },
+    {
+      "rank": 7,
+      "domain": "shorttv.live",
+      "language": "en",
+      "type": "official",
+      "rightsHolder": true,
+      "adHeavy": true,
+      "loginRequired": false,
+      "appName": "ShortMax",
+      "evidence": "69-episode title listed all 69 episodes with zero lock icons; EP1 and EP40 both load directly. Zero coin/VIP strings across 4 pages.",
+      "caveat": "WEB ONLY. The Android app for the same brand is coin-gated (Play listing: earn free coins via ads and daily tasks)."
+    },
+    {
+      "rank": 8,
+      "domain": "myvurt.com",
+      "language": ["en", "hi"],
+      "type": "official",
+      "rightsHolder": true,
+      "adHeavy": true,
+      "loginRequired": "after_3_episodes_free_account",
+      "appName": "Vurt",
+      "evidence": "No coin system found on any page. FAQ states all content is free. 3 episodes anonymous, then unlimited with a free account. Player chip reads 'Romance - Free'.",
+      "caveat": "Player is JS-rendered; verified from site page text, not by watching playback."
+    },
+    {
+      "rank": 9,
+      "domain": "layarkeren.digital",
+      "language": "id",
+      "type": "aggregator",
+      "rightsHolder": false,
+      "adHeavy": true,
+      "loginRequired": false,
+      "evidence": "EPISODE 1-8 rendered as plain pagination to /tv/{slug}/N/. Episodes 2 and 8 verified as distinct live AbyssPlayer iframes with no lock. Zero koin/kredit/premium/terkunci/buka/tonton penuh/langganan strings. Server-side WordPress, no JS wall."
+    }
+  ],
+  "verifiedPaywalled": [
+    {"domain": "dracinku.site", "freeEpisodeLimit": 20, "evidence": "site_name 'VIP DramaWave'; own banner says non-VIP users only get 10% of episodes unlocked; tier packages Rp 5000-300000"},
+    {"domain": "loklok.my.id", "freeEpisodeLimit": 3, "evidence": "free_episode_limit 3; i18n 'For non VIP users, only 10% of episodes are available'; 3-day trial"},
+    {"domain": "m.snssb.com", "evidence": "Genuine Loklok H5. i18n: 'Failed to play, lack of Golden Coins', 'Top up and redeem to unlock', 'Standard VIP Not Activated'"},
+    {"domain": "hoshiyomi.my.id", "evidence": "Episodes 1-5 free, rest VIP; 63 of 68 episodes redirect to the VIP route"},
+    {"domain": "narto-drama.com", "evidence": "Paid credits top-up incl. USDT to unlock premium content; ad-gate endpoints; 29 of 49 episodes return is_playable false", "hosts": ["edge.narto-drama.com", "narto.in", "nartodrama.com"]},
+    {"domain": "chartdrama.com", "evidence": "Ships VIP/member tier plus registration flow; free in practice on sampled title but not by design", "brand": "FindDrama"},
+    {"domain": "teamdl.my.id", "evidence": "Short-drama rows sequentially locked (highestUnlockedEp = 1); long-form rows unlocked"},
+    {"domain": "drakorid.co", "evidence": "Optional Premium tier with per-episode crown gating CSS; currently dormant"},
+    {"domain": "dramadizilerim.com", "evidence": "Real /premium tier plus anti-adblock lock modal"},
+    {"domain": "shorts-drama.com", "evidence": "Own FAQ: coins or subscription, two subscription tiers unlock every story"},
+    {"domain": "microdrama.id", "evidence": "Nav: VIP, Unlimited Drama VIP, Bonus 80 Koin Harian"},
+    {"domain": "goodshort.com", "evidence": "Header TOP UP; lock badge on EP7-EP11; 6 of 52 free"},
+    {"domain": "netshort.com", "evidence": "Lock icons on EP6-EP30; 5 of 30 free"},
+    {"domain": "dramaboxdb.com", "evidence": "Official listing: unlock via free coins from tasks or ads, subscription recommended otherwise"},
+    {"domain": "dramawave.tv", "evidence": "App Store IAP: weekly VIP USD 5.99, monthly USD 11.99"},
+    {"domain": "sereal.com", "evidence": "App Store IAP: coins pack USD 9.99, Sereal+ VIP weekly USD 17.99"},
+    {"domain": "flextv.cc", "evidence": "Persistent global TOP UP header item"},
+    {"domain": "moboreels.com", "evidence": "Play listing: subscription T&C, in-app purchases"},
+    {"domain": "flickreels.net", "evidence": "Footer CTA 'Download and unlock more skits'"},
+    {"domain": "kalostv.com", "evidence": "Site top-up banner; Play listing quotes gold coin packs and VIP subscriptions"},
+    {"domain": "reelshort.com", "evidence": "Coin model per operator listing; gating is client-side"}
+  ],
+  "notShortDrama": [
+    {"domain": "playbox.com", "reason": "Page title is 'Playbox - NSFW AI Video Generator'. No drama catalogue."},
+    {"domain": "vigloo.com", "reason": "French free-to-air live TV network, not a vertical-drama app."},
+    {"domain": "drakor21.com", "reason": "Online gambling operation (Slot Online / Live Casino / Sportsbook / Arcade / Togel Online / Poker). Keyword counts nonton 0, film 0, serial 0."}
+  ],
+  "hostile": [
+    {"domain": "dramaboxdb.org", "reason": "Typosquat of the legitimate dramaboxdb.com"},
+    {"domain": "dramaboxplayer.com", "reason": "Verbatim copy of DramaBox catalog; phishing contact pattern on non-StoryMatrix domain"},
+    {"domain": "netshortfree.com", "reason": "SEO doorway page, all CTAs point off-site to shortflix.net"},
+    {"domain": "rfree.reelsfree.com", "reason": "Marketing shell, no reachable player"},
+    {"domain": "ndrama.nedrama.com", "reason": "Marketing shell, no reachable player"},
+    {"domain": "anichin.club", "reason": "Domain-rotation landing page; lists itself under retired domains; VIP banner link"},
+    {"domain": "oppa.biz", "reason": "Redirects to a bare IP (212.86.121.175) with no TLS hostname"}
+  ],
+  "unresolved": [
+    {"domain": "shortflix.net", "status": "UNVERIFIABLE", "note": "15-source library, live sitemap lastmod 2026-09-27, 20 locales, zero coin/vip/signup strings. Fully client-rendered; sitemap has only 9 URLs with no title slugs; no watch page reachable. Needs a headless browser."}
+  ]
+}
